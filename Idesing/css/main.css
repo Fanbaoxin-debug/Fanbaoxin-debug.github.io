@@ -23,6 +23,7 @@ textarea {
 }
 
 .container {
+
 	width: 100%;
 	height: auto;
 }
@@ -921,7 +922,7 @@ textarea {
 
 .parter3_bottom_left {
 	float: left;
-	height: 10px;
+	height: 100px;
 	width: 33.3%;
 	/* background: salmon; */
 }
@@ -984,7 +985,7 @@ textarea {
 	float: left;
 	width: 212px;
 	height: 33px;
-	background: palegoldenrod;
+	/* background: palegoldenrod; */
 	margin: 13px 0 0 159px;
 }
 
@@ -1035,3 +1036,5 @@ textarea {
 	font-size: 12px;
 	margin: 27px 0 0 135px;
 }
+
+

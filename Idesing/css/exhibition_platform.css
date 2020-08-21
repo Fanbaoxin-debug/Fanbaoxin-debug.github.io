@@ -27,6 +27,8 @@ textarea {
 }
 
 .container {
+	/*2020-08-21 页面优化最小宽*/
+	min-width: 1200px;
 	width: 100%;
 	height: auto;
 }
@@ -568,6 +570,11 @@ textarea {
 	top: 300px;
 	transition: all 2s;
 }
+.parter1_content_top_nav_content_list_demo>img{
+	width: 280px;
+	height: 364px;
+}
+
 
 .parter1_content_top_nav_content_list_demo>div>p {
 	color: #FFFFFF;

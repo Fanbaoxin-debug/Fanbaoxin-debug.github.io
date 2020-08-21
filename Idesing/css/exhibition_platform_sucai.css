@@ -26,6 +26,8 @@ textarea {
 }
 
 .container {
+	/*2020-08-21 页面优化最小宽*/
+	min-width: 1200px;
 	width: 100%;
 	height: auto;
 }
@@ -897,6 +899,8 @@ textarea {
 
 .parter1_content_par4_mid_demo>img{
 	float: left;
+	width: 580px;
+	height: 364px;
 }
 
 
