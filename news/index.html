@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新闻API接口调用当天实时新闻</title>
+	</head>
+	
+	<style type="text/css">
+
+			
+	       	.MYlist>li>a{
+	       		float: left;
+	       		color: #353535;
+	       		font-family: "微软雅黑";
+	       		font-size: 16px;
+	       		
+	       	}	       	
+	        .MYlist>li>p{
+	       		float: left;
+	       		
+	       		margin:  0 15px 0 15px;
+	       		color: darkgray;
+	       	    font-family: "微软雅黑";
+	       		font-size: 14px;
+	       	}
+	        .MYlist>li>span{
+	       		float: left;
+	       		color: darkgray;
+	       		font-family: "微软雅黑";
+	       		font-size: 14px;
+	       	}
+	       	
+	       	/* 未访问*/
+	       	.MYlist>li>a:link{
+	       		color: black;
+	       	}
+	       	/*访问过*/
+	        .MYlist>li>a:visited{
+	        	color: black;
+	       	}
+	       	
+	       	/*悬停*/
+	       	.MYlist>li>a:hover{
+	       		color: salmon;
+	       	}
+	       	/*激活*/
+	       	.MYlist>li>a:active{
+	       		color: aqua;
+	       	}
+	       	
+	       	.biaoti{
+            	width: 1180px;
+            	height: 30px;
+            	margin: 0 auto;
+            	/*background: salmon;*/
+            	text-align: center;
+            }
+
+			.biaoti>p{
+            	font-family: "微软雅黑";
+            	font-size: 15px;
+            	height: 15px;
+            	line-height: 30px;
+            	font-weight: 600;
+            	color: #353535;
+            }
+            
+	       	.container{
+	       		width: 1180px;
+            	height: 100% ;
+            	/*background: gold;*/
+            	margin: 0 auto;
+	       		
+	       	}
+			
+			
+	</style>
+	
+	
+	
+	
+	<body>
+		<div class="biaoti">
+			<p>使用极速数据网提供的免费新闻API，动态生成新闻</p>
+		</div>
+		<div class="container">
+		<ul class="MYlist" type="circle"></ul>		
+		<button type="button" class="getnews"> 获取新闻</button>
+		</div>
+
+
+	</body>
+	<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//点击按钮的方法
+			$(".getnews").click(function(){
+				$.ajax({
+					type:"post",
+					url:"https://api.jisuapi.com/news/get?channel=头条&start=0&num=10&appkey=670256294c890e77",
+					async:true,
+				    dataType: "jsonp", //指定服务器返回的数据类型 "
+				    success:function(data){
+				    	console.log(data);
+				    	console.log(data.result);
+				    	$(".MYlist").empty();
+				    	for (var i = 0; i < data.result.list.length; i++) {	
+				    		console.log(data.result.list[i]["title"]);				    		
+				    		var $li =$("<li></li>");
+				    		var $a=$("<a></a>");
+				    		var $p =$("<p></p>")
+				    		var $span=$("<span></span>")
+				    		$a.text(data.result.list[i]["title"]).attr("href",data.result.list[i]["weburl"]);
+				    		$p.text(data.result.list[i]["src"]);
+				    		$span.text(data.result.list[i]["time"]);
+				    		$li.append($a);
+				    		$li.append($p);
+				    		$li.append($span);
+				    		$(".MYlist").append($li);
+				    	}
+				    	
+				    },
+				    error:function(e){
+				    	console.log(e);
+				    }
+				    
+				});
+			})
+			
+			
+		})
+	</script>
+</html>

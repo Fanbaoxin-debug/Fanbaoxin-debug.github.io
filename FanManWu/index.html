@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/index.css" />
+		<title></title>
+		<!--</head>-->
+
+		<body>
+			<div class="container">
+				<!--顶部的菜单栏-->
+				<div class="nav">
+					<div class="nav_content">
+						<img src="img/fanmanwulogo.png" />
+						<ul class="subnav"></ul>
+
+						<div class="search">
+							<div class="search_input">
+								<input type="text" class="search_val" placeholder="作者、歌手、新番、" />
+								<button type="button" class="search_btn"></button>
+							</div>
+							<button type="button" class="login">登录/注册</button>
+						</div>
+					</div>
+					<div class="line"></div>
+				</div>
+				<!--轮播图-->
+				<div class="carsouel">
+					<ul class="swiper">
+						<li>
+							<a href=""><img src="img/banner1.jpg" /></a>
+						</li>
+						<li>
+							<a href=""><img src="img/banner2.jpg" /></a>
+						</li>
+						<li>
+							<a href=""><img src="img/banner3.jpg" /></a>
+						</li>
+						<li>
+							<a href=""><img src="img/banner4.jpg" /></a>
+						</li>
+						<li>
+							<a href=""><img src="img/banner1.jpg" /></a>
+						</li>
+					</ul>
+					<button type="button" class="prev">&lt;</button>
+					<button type="button" class="next">&gt;</button>
+				</div>
+				<!--最新番剧-->
+				<div class="parter1">
+					<div class="parter1_top">
+						<!--<img src="img/dianshiji.png" />-->
+						<!--<img  class="icon icon1"/>-->
+						<span class="icon icon1"></span>
+						<h3>最新番剧</h3>
+						<a href="">MORE</a>
+					</div>
+
+					<div class="parter1_mid">
+						<ul class="parter1_list"></ul>
+					</div>
+					<!--第一部分-->
+					<ul class="parter1_content"></ul>
+
+				</div>
+				<div class="cycle">
+					<div></div>
+					<div></div>
+				</div>
+
+				<!--第二部分连载漫画-->
+				<div class="parter2">
+					<div class="parter2_top">
+						<!--<img src="img/cat.png" />-->
+						<span class="icon icon2"></span>
+						<h3>连载漫画</h3>
+						<a href="">MORE</a>
+					</div>
+					<div class="parter2_mid">
+						<ul class="parter2_list"></ul>
+					</div>
+
+					<ul class="parter2_content"></ul>
+
+				</div>
+				<div class="cycle">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+
+				<!-- 第三部分  饭漫音乐-->
+
+				<div class="parter3">
+					<div class="parter3_top">
+						<!--<img src="img/yinyue.png" />-->
+						<span class="icon icon3"></span>
+						<h3>饭漫音乐</h3>
+						<a href="">MORE</a>
+					</div>
+
+					<div class="parter3_mid">
+						<ul class="parter3_list"></ul>
+					</div>
+
+					<ul class="parter3_content"></ul>
+
+				</div>
+				<div class="cycle">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+
+				<!--第4部分-->
+
+				<div class="parter4">
+
+					<div class="parter4_top">
+						<!--<img src="img/qianbi.png" />-->
+						<span class="icon icon4"></span>
+						
+						<h3>特色漫评</h3>
+						<a href="">MORE</a>
+					</div>
+
+					<div class="parter4_mid">
+						<ul class="parter4_list"></ul>
+					</div>
+
+					<ul class="parter4_content"></ul>
+
+				</div>
+				<div class="cycle">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="H30px">
+
+				</div>
+
+				<!--最后底部-->
+				<div class="footer">
+					<div class="footer_demo">
+						<div class="footer_demo_left">
+							<img src="img/fanmanwulogo.png" />
+							<p>首页 | 饭漫屋APP(未来) | 关于饭漫屋 | 加入我们 | 我要投稿 | 帮助FAQ | 家长监护 | 用户协议</p>
+							<p>饭漫屋(天津)科技有限公司</p>
+							<p>copyright 2016 fanmanwu.com All Rights Reserved </p>					
+							<p>全部信息饭漫屋版权所有未经许可严禁转载|	<a href="http://www.beian.miit.gov.cn/" target="_blank">ICP备案&nbsp;津ICP备19009363号-1</a>|</p>
+						</div>
+
+						<div class="footer_demo_right">
+
+							<img src="img/wodeerweima.jpg" />
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</body>
+		<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="js/my.js"></script>
+		<script type="text/javascript">
+			//轮播图方法
+			$(document).ready(function() {
+
+				var n = 0;
+				$(".next").click(function() {
+					n++;
+					play();
+				})
+				$(".prev").click(function() {
+					n--;
+					play();
+				})
+
+				function play() {
+					if(n == -1) {
+						$(".swiper").css("left", -4720);
+						n = 3;
+					}
+					if(n == 5) {
+						$(".swiper").css("left", 0)
+						n = 1;
+					}
+
+					$(".swiper").animate({
+						"left": -1180 * n,
+					}, 300)
+
+				}
+
+				 setInterval(function(){
+					n++;
+					play();
+					
+				},2000) 
+
+				// 为你推荐 周一 到 周五 选项卡切换
+
+				$(".parter1_list>li").click(function() {
+
+					$(this).addClass("parter1liactive").siblings().removeClass("parter1liactive");
+
+					$(".parter1_content>li").eq($(this).index()).show().siblings().hide();
+
+				})
+
+				// 为你推荐  parter2 选项卡切换
+
+				$(".parter2_list>li").click(function() {
+
+					$(this).addClass("parter2liactive").siblings().removeClass("parter2liactive");
+
+					$(".parter2_content>li").eq($(this).index()).show().siblings().hide();
+				})
+
+				// 为你推荐  parter3 选项卡切换
+
+				$(".parter3_list>li").click(function() {
+
+					$(this).addClass("parter3liactive").siblings().removeClass("parter3liactive");
+
+					$(".parter3_content>li").eq($(this).index()).show().siblings().hide();
+				})
+
+				// 为你推荐  parter4 选项卡切换
+
+				$(".parter4_list>li").click(function() {
+
+					$(this).addClass("parter4liactive").siblings().removeClass("parter4liactive");
+
+					$(".parter4_content>li").eq($(this).index()).show().siblings().hide();
+				})
+
+			})
+		</script>
+
+</html>
