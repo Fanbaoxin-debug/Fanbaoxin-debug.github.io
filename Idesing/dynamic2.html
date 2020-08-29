@@ -91,6 +91,109 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			
+			
+			
+			
+			<!-- 注册模太窗口 -->
+			<div class="modal_zhuce">
+				<div class="modal_zhuce_content">
+					<img class="modalclose" src="./img/id_modal_close_30_30.png">
+					<div class="modal_zhuce_content_demo">
+						<div class="modal_zhuce_content_demo_input">
+							<p>用户名</p>
+							<input type="text" placeholder="请设置用户名" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_input">
+							<p>手机号</p>
+							<input type="text" placeholder="可用于登录和找回密码" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_input">
+							<p>验证码</p>
+							<input type="text" placeholder="请输入验证码" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_input">
+							<p class="marin_right54px">密码</p>
+							<input type="text" placeholder="请设置登录密码" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_checkbox">
+							<input type="checkbox" checked="checked" id="ccc" />
+							<label for="ccc">下次自动登录</label>
+						</div>
+						<div class="btn_zhuce">
+							注册
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!-- 注册模太窗口 -->
+			<div class="modal_zhuce">
+				<div class="modal_zhuce_content">
+					<img class="modalclose" src="./img/id_modal_close_30_30.png">
+					<div class="modal_zhuce_content_demo">
+						<div class="modal_zhuce_content_demo_input">
+							<p>用户名</p>
+							<input type="text" placeholder="请设置用户名" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_input">
+							<p>手机号</p>
+							<input type="text" placeholder="可用于登录和找回密码" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_input">
+							<p>验证码</p>
+							<input type="text" placeholder="请输入验证码" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_input">
+							<p class="marin_right54px">密码</p>
+							<input type="text" placeholder="请设置登录密码" />
+						</div>
+			
+						<div class="modal_zhuce_content_demo_checkbox">
+							<input type="checkbox" checked="checked" id="ccc" />
+							<label for="ccc">下次自动登录</label>
+						</div>
+						<div class="btn_zhuce">
+							注册
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!-- 注册成功 模态窗口 -->
+			<div class="modal_success">
+				<div class="modal_success_content">
+					<img class="modalclose" src="./img/id_modal_close_30_30.png">
+			
+					<div class="modal_success_content_img">
+						<img src="img/zhuce_yuankuang_139_139.png">
+					</div>
+					
+					<div class="modal_success_content_txt">
+						<h3>注册成功</h3>
+						<p>注册成功</p>
+						<div>OK</div>
+					</div>
+			
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
 			<div class="header">
 
 				<a class="logo" href="index.html">
@@ -232,13 +335,50 @@
 	<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
+			
+			
+			
 			// 注册登录按钮
 			$(".login").click(function() {
 				$(".modal").fadeIn();
 			})
+			// 点击关闭按钮
 			$(".modalclose").click(function() {
 				$(".modal").fadeOut();
+				
+				// 注册模态窗口关闭
+				$(".modal_zhuce").fadeOut();
+				
+				// 注册成功的模态窗口 关闭
+				$(".modal_success").fadeOut();
+				
 			})
+			
+			// 注册按钮
+			$(".modalcon_parter2_btns").click(function() {
+				$(".modal").fadeOut();
+				$(".modal_zhuce").fadeIn();
+			})
+			
+			
+			//注册成功
+			
+			$(".btn_zhuce").click(function(){
+				$(".modal_zhuce").fadeOut();
+				$(".modal_success").fadeIn();
+			})
+			
+			$(".modal_success_content_txt>div").click(function(){
+				$(".modal_success").fadeOut();
+			})
+			
+			
+
+			
+			
+			
+			
+			
 			// 选项卡切换
 			$(".modaltitle>div").click(function() {
 				$(this).find("p").addClass("modal_title_active").parent().siblings().find("p").removeClass("modal_title_active");
