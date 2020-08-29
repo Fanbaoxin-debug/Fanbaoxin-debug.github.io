@@ -23,7 +23,7 @@ textarea {
 }
 
 .container {
-	/* 2020-08-21 设置最小宽 */
+	/*2020-08-21 页面优化最小宽*/
 	min-width: 1200px;
 	width: 100%;
 	height: auto;
