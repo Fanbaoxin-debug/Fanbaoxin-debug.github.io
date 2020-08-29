@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<title>谁去拿外卖</title>
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="top">
+				<img src="img/beijing.png">
+				<img src="img/ludeng.png">
+				<div class="top_malu">
+					<img src="img/malu1.png">
+					<img src="img/malu2.png">
+				</div>
+				<div class="qishou">
+					<img src="img/qishou1.png">
+					<img src="img/qishou2.png">
+				</div>
+			</div>
+
+
+
+			<ul class="bottom">
+				<!-- 				<li>
+					<div class="biaoti">
+						<span>1</span>
+					</div>
+					<h3>100 <span class="tip">瞅啥呢?你去拿外卖!</span></h3>
+				</li> -->
+			</ul>
+
+
+		</div>
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			//	声明序号从1开始
+			var ix = 1;
+			// 声明最小值 并把100赋值给它 （随机数准备取从0到100）
+			var minnum = 100;
+
+
+			$(".qishou").click(function() {
+
+				// 声明li标签
+				var $li = $("<li></li>");
+
+				// 声明存房序号的div
+				var $divbiaoti = $("<div class='biaoti'></div>");
+				var $span_1 = $("<span></span>");
+
+				// 给span 标签赋值
+				$span_1.text(ix);
+
+				ix++;
+				// 将赋值的span标签 放入到  $divbiaoti
+				$divbiaoti.append($span_1);
+
+				// 将$divbiaoti 放入 $li
+				$li.append($divbiaoti);
+
+				//==========================================
+
+				// 生成随机数 ran
+				var ran = Math.floor(Math.random() * 101);
+
+				var $h3 = $("<h3></h3>")
+
+				// 给h3 赋值
+				$h3.text(ran);
+
+				// 将H3 放入li标签
+				$li.append($h3);
+
+
+				//判断 随机数 比 minnum 小时 ,替换随机数
+				if (ran < minnum) {
+
+					//移出之前最小值上面的提示文字
+					$(".bottom>li>h3>.tip").remove();
+
+					// 把随机出来的 赋值给minnum
+					minnum = ran;
+
+
+					// 声明span标签存提示文字
+					var $span_2 = $("<span class='tip'>瞅啥呢?你去拿外卖!</span>")
+
+					$h3.append($span_2);
+
+
+				}
+
+
+				$(".bottom").append($li);
+
+
+
+
+				//======================================
+
+
+				//  骑手换图片
+				$(".qishou>img:nth-child(2)").show().siblings().hide();
+				var timer = setInterval(my, 100);
+				// 恢复图片计时器
+				function my() {
+					$(".qishou>img:nth-child(1)").show().siblings().hide();
+					clearInterval(timer);
+				}
+
+
+
+
+
+
+
+
+
+
+			})
+
+
+
+
+
+
+
+
+
+
+
+
+
+		})
+	</script>
+</html>
